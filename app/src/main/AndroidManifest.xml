@@ -8,15 +8,18 @@
         android:name="android.hardware.sensor.hinge_angle"
         android:required="false" />
 
+    <!-- Screen wake lock that keeps the cover display on while the hinge opens -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
+        android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AmbientFoldWallpaper">
+        android:theme="@style/Theme.Lumifold">
 
-        <!-- Main Launcher & Wallpaper Customizer Activity -->
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
@@ -27,7 +30,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Live Wallpaper Service -->
         <service
             android:name=".service.FoldWallpaperService"
             android:exported="true"
